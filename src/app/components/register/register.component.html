@@ -1,0 +1,138 @@
+<section class="bg-light my-4 p-3">
+  <h2>Register Now:</h2>
+  <form [formGroup]="registerForm" (ngSubmit)="handleForm()">
+    <div class="my-2">
+      <label for="name">Name:</label>
+      <input
+        #inputName
+        formControlName="name"
+        placeholder="Enter Name.."
+        type="text"
+        id="name"
+        class="form-control"
+      />
+      <div
+        class="alert alert-danger"
+        *ngIf="
+          (registerForm.get('name')?.touched || inputName.value.length > 0) &&
+          registerForm.get('name')?.errors
+        "
+      >
+        <p *ngIf="registerForm.get('name')?.getError('required')">
+          Name is Required
+        </p>
+        <p *ngIf="registerForm.get('name')?.getError('minlength')">
+          Name Min Length 3
+        </p>
+        <p *ngIf="registerForm.get('name')?.getError('maxlength')">
+          Name Max Length 20
+        </p>
+      </div>
+    </div>
+    <div class="my-2">
+      <label for="email">Email:</label>
+      <input
+        #inputEmail
+        formControlName="email"
+        placeholder="Enter Email.."
+        type="email"
+        id="email"
+        class="form-control"
+      />
+      <div
+        class="alert alert-danger"
+        *ngIf="
+          (registerForm.get('email')?.touched || inputEmail.value.length > 0) &&
+          registerForm.get('email')?.errors
+        "
+      >
+        <p *ngIf="registerForm.get('email')?.getError('required')">
+          Email is Required
+        </p>
+        <p *ngIf="registerForm.get('email')?.getError('email')">
+          Email InValid Format
+        </p>
+      </div>
+    </div>
+    <div class="my-2">
+      <label for="password">Password:</label>
+      <input
+        #inputpassword
+        formControlName="password"
+        placeholder="Enter Password.."
+        type="password"
+        id="password"
+        class="form-control"
+      />
+      <div
+        class="alert alert-danger"
+        *ngIf="
+          (registerForm.get('password')?.touched ||
+            inputpassword.value.length > 0) &&
+          registerForm.get('password')?.errors
+        "
+      >
+        <p *ngIf="registerForm.get('password')?.getError('required')">
+          password is Required
+        </p>
+        <p *ngIf="registerForm.get('password')?.getError('pattern')">
+          Password must start with upperCase then from 6 to 10
+        </p>
+      </div>
+    </div>
+    <div class="my-2">
+      <label for="rePassword">rePassword:</label>
+      <input
+        #inputrePassword
+        formControlName="rePassword"
+        placeholder="Enter rePassword.."
+        type="password"
+        id="rePassword"
+        class="form-control"
+      />
+      <div
+        class="alert alert-danger"
+        *ngIf="
+          registerForm.get('rePassword')?.touched &&
+          registerForm.get('rePassword')?.errors
+        "
+      >
+        <p *ngIf="registerForm.get('rePassword')?.getError('required')">
+          rePassword is Required
+        </p>
+        <p *ngIf="registerForm.get('rePassword')?.getError('pattern')">
+          rePassword confirmation is incorrect
+        </p>
+      </div>
+    </div>
+    <div class="my-2">
+      <label for="phone">Phone:</label>
+      <input
+        #inputphone
+        formControlName="phone"
+        placeholder="Enter Phone.."
+        type="tel"
+        id="phone"
+        class="form-control"
+      />
+      <div
+        class="alert alert-danger"
+        *ngIf="
+          (registerForm.get('phone')?.touched || inputphone.value.length > 0) &&
+          registerForm.get('phone')?.errors
+        "
+      >
+        <p *ngIf="registerForm.get('phone')?.getError('required')">
+          Phone is Required
+        </p>
+        <p *ngIf="registerForm.get('phone')?.getError('pattern')">
+          Phone saccept only egypt phone numbers
+        </p>
+      </div>
+    </div>
+    <button [disabled]="registerForm.invalid" class="btn-main ms-auto d-block">
+      Register
+    </button>
+    <p class="alert alert-danger" *ngIf="msErr">{{ msErr }}</p>
+  </form>
+</section>

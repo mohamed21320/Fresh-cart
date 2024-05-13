@@ -1,0 +1,42 @@
+<section class="w-75 mx-auto rounded bg-main-light p-3 my-5" *ngIf="step1">
+  <form [formGroup]="forgetForm" (ngSubmit)="forgetpass()">
+    <label for="email">Email</label>
+    <input
+      type="email"
+      formControlName="email"
+      id="email"
+      placeholder="Enter Email.."
+      class="form-control"
+    />
+    <button class="btn-main w-100 mx-auto d-block m-3">Forget Password</button>
+    <p class="alert alert-danger" *ngIf="msErr">{{ msErr }}</p>
+  </form>
+</section>
+
+<section class="w-75 mx-auto rounded bg-main-light p-3 my-5" *ngIf="step2">
+  <form [formGroup]="resetCodeForm" (ngSubmit)="resetCode()">
+    <label for="resetCode">Reset Code</label>
+    <input
+      type="text"
+      formControlName="resetCode"
+      id="resetCode"
+      class="form-control"
+    />
+    <button class="btn-main w-100 mx-auto d-block m-3">Reset Code</button>
+    <p class="alert alert-danger" *ngIf="msErr">{{ msErr }}</p>
+  </form>
+</section>
+
+<section class="w-75 mx-auto rounded bg-main-light p-3 my-5" *ngIf="step3">
+  <form [formGroup]="newPasswordForm" (ngSubmit)="newpass()">
+    <label for="resetPassword">Reset Password</label>
+    <input
+      type="password"
+      formControlName="newPassword"
+      id="resetPassword"
+      class="form-control"
+    />
+    <button class="btn-main w-100 mx-auto d-block m-3">Reset Password</button>
+    <p class="alert alert-danger" *ngIf="msErr">{{ msErr }}</p>
+  </form>
+</section>

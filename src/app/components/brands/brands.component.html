@@ -1,0 +1,19 @@
+<section class="m-3">
+  <div class="row g-4">
+    <div class="col-lg-2 col-md-3 col-sm-6" *ngFor="let item of brands">
+      <div class="product p-2">
+        <div class="cursor-pointer" [routerLink]="['/cat', item._id]">
+          <img
+            [src]="item.image"
+            height="200"
+            class="w-100 pb-2"
+            [alt]="item.title"
+          />
+          <h2 class="h6 text-main">{{ item.name }}</h2>
+          <p class="font-sm">{{ item.slug }}</p>
+        </div>
+        <button class="btn-main w-100">Add Product</button>
+      </div>
+    </div>
+  </div>
+</section>

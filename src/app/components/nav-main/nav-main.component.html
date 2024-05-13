@@ -1,0 +1,94 @@
+<nav class="navbar navbar-expand-sm navbar-light bg-light fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <img src="./assets/images/freshcart-logo.svg" alt="logo" />
+    </a>
+    <button
+      class="navbar-toggler d-lg-none"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#collapsibleNavId"
+      aria-controls="collapsibleNavId"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavId">
+      <ul
+        class="navbar-nav me-auto mt-2 mt-lg-0 align-items-center justify-content-center"
+      >
+        <li class="nav-item">
+          <a
+            class="nav-link text-capitalize"
+            routerLink="/home"
+            routerLinkActive="active-link"
+            >home</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link text-capitalize"
+            routerLink="/cart"
+            routerLinkActive="active-link"
+            >cart</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link text-capitalize"
+            routerLink="/products"
+            routerLinkActive="active-link"
+            >products</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link text-capitalize"
+            routerLink="/categories"
+            routerLinkActive="active-link"
+            >categories</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link text-capitalize"
+            routerLink="/brands"
+            routerLinkActive="active-link"
+            >brands</a
+          >
+        </li>
+      </ul>
+      <ul
+        class="navbar-nav ms-auto mt-2 mt-lg-0 align-items-center justify-content-center"
+      >
+        <li class="nav-item" routerLink="/wishlist">
+          <a class="nav-link position-relative">
+            <i class="fa-solid fa-heart fa-xl text-danger"></i>
+            <span class="badge bg-info position-absolute top-0 end-0">{{
+              WishList
+            }}</span>
+          </a>
+        </li>
+        <li class="nav-item" routerLink="/cart">
+          <a class="nav-link position-relative">
+            <i class="fas fa-cart-shopping fa-xl text-main"></i>
+            <span class="badge bg-info position-absolute top-0 end-0">{{
+              data
+            }}</span>
+          </a>
+        </li>
+
+        <i class="fa-brands fa-instgram m-2 c"></i>
+        <i class="fa-brands fa-facebook m-2"></i>
+        <i class="fa-brands fa-tiktok m-2"></i>
+        <i class="fa-brands fa-twitter m-2"></i>
+        <i class="fa-brands fa-linkedin m-2"></i>
+        <i class="fa-brands fa-youtube m-2"></i>
+        <li class="nav-item">
+          <a (click)="out()" class="nav-link cursor-pointer">Sign Out</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

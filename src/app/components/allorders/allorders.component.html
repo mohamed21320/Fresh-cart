@@ -1,0 +1,52 @@
+<section class="w-75 mx-auto bg-light p-3 my-5" *ngFor="let item of products | paginate: { id: 'productPaginate',
+itemsPerPage: pageSize,
+currentPage: currentPage,
+totalItems: total }">
+    <div class="row border-bottom py-3" *ngFor="let item of products">
+        <div class="col-md-2">
+         
+        </div>
+        <div class="col-md-10">
+          <div class="d-flex justify-content-between align-items-center">
+            <div>
+                <h2 class="h6 text-main">
+                    Total Price:{{ item.totalOrderPrice| currency }}
+                  </h2>
+              <h2 class="h5">{{ item.shippingAddress.city}}</h2>
+              <h3 class="h6">{{ item.paymentMethodType}}</h3>
+              <h4 class="h6 ">{{ item.paidAt}}</h4>
+              
+            </div>
+            <div>
+                <h2 class="h6 text-main">
+                    Email:{{ item.user.email}}
+                </h2>
+            <h2 class="h6">name:{{ item.user.name}}</h2>
+            <h3 class="h6">phone:{{ item.user.phone}}</h3>
+            
+            </div>
+          </div>
+               
+
+        </div>
+      </div>
+     
+</section>
+
+<div class="d-flex justify-content-center">
+    <pagination-controls
+      id="productPaginate"
+      (pageChange)="pageChanged($event)"
+      (pageBoundsCorrection)="pageChanged($event)"
+      [maxSize]="9"
+      [directionLinks]="true"
+      [autoHide]="true"
+      [responsive]="true"
+      previousLabel="Previous"
+      nextLabel="Next"
+      screenReaderPaginationLabel="Pagination"
+      screenReaderPageLabel="page"
+      screenReaderCurrentLabel="You're on page"
+    >
+    </pagination-controls>
+  </div>

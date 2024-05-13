@@ -1,0 +1,32 @@
+<section class="bg-main-light p-3 my-4 rounded w-75 mx-auto">
+  <form [formGroup]="payment" (ngSubmit)="handleForm()">
+    <div>
+      <label for="details">details:</label>
+      <input
+        type="text"
+        id="details"
+        formControlName="details"
+        class="form-control"
+      />
+    </div>
+    <div>
+      <label for="phone">phone:</label>
+      <input
+        type="tel"
+        id="phone"
+        formControlName="phone"
+        class="form-control"
+      />
+    </div>
+    <div>
+      <label for="city">city:</label>
+      <input
+        type="text"
+        id="city"
+        formControlName="city"
+        class="form-control"
+      />
+    </div>
+    <button class="btn btn-main mt-3">Save</button>
+  </form>
+</section>

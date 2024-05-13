@@ -1,0 +1,28 @@
+<section>
+  <div class="row justify-content-center align-items-center">
+    <div class="col-md-4">
+      <owl-carousel-o [options]="imgSlider">
+        <ng-container *ngFor="let slide of details.images">
+          <ng-template carouselSlide>
+            <img [src]="slide" class="w-75" alt="" />
+          </ng-template>
+        </ng-container>
+      </owl-carousel-o>
+    </div>
+    <div class="col-md-8">
+      <h2 class="h3">{{ details.title }}</h2>
+      <p>{{ details.description }}</p>
+      <h2 class="text-main h4 fw-bold">{{ details.brand.name }}</h2>
+      <div class="d-flex justify-content-between mb-4">
+        <span>{{ details.price }} EGP</span>
+        <span
+          ><i class="fa-solid fa-star" style="color: #ffd43b"></i
+          >{{ details.ratingsAverage }}</span
+        >
+      </div>
+      <button class="w-100 btn-main" (click)="addCart(details._id)">
+        Add Product
+      </button>
+    </div>
+  </div>
+</section>
